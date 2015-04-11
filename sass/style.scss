@@ -1482,7 +1482,7 @@
 		text-align: center;
 
 		h2 {
-			@include vendor('transform', 'scale(1)');
+			@include vendor('transform', 'scale(3)');
 			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
 			display: inline-block;
 			font-size: 1.75em;
