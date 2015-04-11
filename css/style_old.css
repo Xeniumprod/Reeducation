@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
 /* IE Viewport Fix */
 
@@ -77,9 +77,10 @@
 
 	body, input, select, textarea {
 		color: #fff;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Open Sans", Helvetica, sans-serif;
 		font-size: 15pt;
-		font-weight: 300;
+		font-weight: 400;
+		letter-spacing: 0.075em;
 		line-height: 1.65em;
 	}
 
@@ -98,6 +99,7 @@
 		@media screen and (max-width: 736px) {
 			body, input, select, textarea {
 				font-size: 11pt;
+				letter-spacing: 0.0375em;
 			}
 		}
 
@@ -117,7 +119,7 @@
 
 	strong, b {
 		color: #fff;
-		font-weight: 400;
+		font-weight: 600;
 	}
 
 	em, i {
@@ -130,8 +132,9 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
+		font-weight: 800;
+		letter-spacing: 0.225em;
 		line-height: 1em;
-        letter-spacing: 0.15em;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
 	}
@@ -1858,17 +1861,12 @@
 			text-transform: none !important;
 		}
 
-        .icon > .label {
-            display: none;
-        }
-
-		.icon.major > .label {
+		.icon > .label {
 			display: block;
             -moz-transform: rotate(45deg);
 			-webkit-transform: rotate(45deg);
 			-ms-transform: rotate(45deg);
 			transform: rotate(45deg);
-            cursor: pointer;
 		}
 
 		.icon.major {
@@ -2218,7 +2216,7 @@
 		font-size: 0.8em;
 		font-weight: 600;
 		height: 3.125em;
-		letter-spacing: 0.15em;
+		letter-spacing: 0.225em;
 		line-height: 3.125em;
 		padding: 0 2.75em;
 		text-align: center;
@@ -3154,7 +3152,7 @@
 					color: inherit;
 					display: block;
 					font-size: 0.8em;
-					letter-spacing: 0.15em;
+					letter-spacing: 0.225em;
 					outline: 0;
 					text-decoration: none;
 					text-transform: uppercase;
@@ -3269,7 +3267,7 @@
 						color: #fff;
 						display: block;
 						font-size: 0.8em;
-						letter-spacing: 0.15em;
+						letter-spacing: 0.225em;
 						padding: 0 1.5em;
 						text-transform: uppercase;
 					}
@@ -3390,7 +3388,7 @@
 			}
 
 		#banner p {
-			letter-spacing: 0.1em;
+			letter-spacing: 0.225em;
 			text-transform: uppercase;
 		}
 
@@ -3417,7 +3415,7 @@
 			font-size: 0.8em;
 			height: 8.5em;
 			left: 50%;
-			letter-spacing: 0.1em;
+			letter-spacing: 0.225em;
 			margin-left: -8.5em;
 			opacity: 1;
 			outline: 0;
@@ -3590,7 +3588,7 @@
 
 		#main > header p {
 			color: inherit;
-			letter-spacing: 0.1em;
+			letter-spacing: 0.225em;
 			text-transform: uppercase;
 			top: 0;
 		}
@@ -3655,7 +3653,7 @@
 		#footer .copyright {
 			color: rgba(255, 255, 255, 0.5);
 			font-size: 0.8em;
-			letter-spacing: 0.1em;
+			letter-spacing: 0.225em;
 			list-style: none;
 			padding: 0;
 			text-transform: uppercase;
