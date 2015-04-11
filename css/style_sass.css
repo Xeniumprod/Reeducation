@@ -2587,14 +2587,14 @@ body.is-menu-visible #menu {
     z-index: 1; }
     /* line 1494, /Users/Acetylcholine/Reeducation/sass/style.scss */
     #banner h2:before, #banner h2:after {
-      -moz-transition: width 0.85s ease;
-      -webkit-transition: width 0.85s ease;
-      -ms-transition: width 0.85s ease;
-      transition: width 0.85s ease;
-      -moz-transition-delay: 0.25s;
-      -webkit-transition-delay: 0.25s;
-      -ms-transition-delay: 0.25s;
-      transition-delay: 0.25s;
+      -moz-transition: width 0.65s ease;
+      -webkit-transition: width 0.65s ease;
+      -ms-transition: width 0.65s ease;
+      transition: width 0.65s ease;
+      -moz-transition-delay: 0.15s;
+      -webkit-transition-delay: 0.15s;
+      -ms-transition-delay: 0.15s;
+      transition-delay: 0.15s;
       background: #fff;
       content: '';
       display: block;
@@ -2670,10 +2670,10 @@ body.is-menu-visible #menu {
     -webkit-transition: opacity 3s ease-in-out;
     -ms-transition: opacity 3s ease-in-out;
     transition: opacity 3s ease-in-out;
-    -moz-transition-delay: 1.25s;
-    -webkit-transition-delay: 1.25s;
-    -ms-transition-delay: 1.25s;
-    transition-delay: 1.25s;
+    -moz-transition-delay: 7s;
+    -webkit-transition-delay: 7s;
+    -ms-transition-delay: 7s;
+    transition-delay: 7s;
     content: '';
     background: #2e3842;
     display: block;
@@ -2869,10 +2869,10 @@ body.is-mobile #main > header {
 /* Landing */
 /* line 1794, /Users/Acetylcholine/Reeducation/sass/style.scss */
 body.landing #page-wrapper {
-  background-image: "-moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "-webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "-ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/banner.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2887,10 +2887,10 @@ body.is-mobile.landing #page-wrapper {
   background: none; }
 /* line 1815, /Users/Acetylcholine/Reeducation/sass/style.scss */
 body.is-mobile.landing #banner, body.is-mobile.landing .wrapper.style4 {
-  background-image: "-moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "-webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "-ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
-  background-image: "linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("../images/banner.jpg")';
+  background-image: "-moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("/images/banner.jpg")';
+  background-image: "-webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("/images/banner.jpg")';
+  background-image: "-ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("/images/banner.jpg")';
+  background-image: "linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))", 'url("/images/banner.jpg")';
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover; }
