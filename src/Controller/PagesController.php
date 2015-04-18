@@ -39,4 +39,14 @@ class PagesController extends AppController
     {
         
     }
+
+    public function generic()
+    {
+
+    }
+
+    public function elements()
+    {
+        
+    }
 }

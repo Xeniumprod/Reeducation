@@ -1,17 +1,6 @@
 <!-- Page Wrapper -->
 	<div id="page-wrapper">
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<nav id="nav">
-					<ul>
-						<li class="special">
-							<a href="#"><span>Connexion</span></a>
-						</li>
-					</ul>
-				</nav>
-			</header>
-
 		<!-- Banner -->
 			<section id="banner">
 				<div class="inner">

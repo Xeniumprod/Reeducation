@@ -1,26 +1,5 @@
 <div id="page-wrapper">
 
-    <!-- Header -->
-        <header id="header" class="alt">
-            <h1><a href="index.html">#Nom Kine</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#" class="menuToggle"><span>Menu</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="index.html">Accueil</a></li>
-                                <li><a href="generic.html">Generic</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                                <li><a href="#">Sign Up</a></li>
-                                <li><a href="#">Log In</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
     <!-- Banner -->
         <section id="banner">
             <div class="inner">
