@@ -47,6 +47,11 @@ class PagesController extends AppController
 
     public function elements()
     {
+
+    }
+
+    public function hdj()
+    {
         
     }
 }

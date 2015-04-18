@@ -1,11 +1,8 @@
-<!-- Page Wrapper -->
-<div id="page-wrapper">
-
 	<!-- Main -->
 		<article id="main">
 			<header>
-				<h2>Elements</h2>
-				<p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p>
+				<h2>Hôpital de jour</h2>
+				<p>Présence des patients présent en hôpital de jour</p>
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
