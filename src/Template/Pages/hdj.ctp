@@ -1,3 +1,6 @@
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
 	<!-- Main -->
 		<article id="main">
 			<header>
