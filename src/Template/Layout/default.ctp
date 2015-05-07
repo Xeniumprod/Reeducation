@@ -8,7 +8,7 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('elements.css') ?>
     
     <?= $this->Html->script('jquery.min.js') ?>
     <?= $this->Html->script('jquery.scrollex.min.js') ?>

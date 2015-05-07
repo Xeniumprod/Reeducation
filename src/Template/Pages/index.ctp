@@ -158,8 +158,8 @@
 				<h2>Rechercher un patient</h2>
 				<p>Pour rechercher un patient, merci de bien sélectionner son numéro de chambre ou son nom dans le champs de recherche situé à droite.</p>
 			</header>
-			<ul class="actions vertical">
-				<li><div class="search-input icon fa-search"></div><input type="text" name="search-chambre" id="search-chambre" value="" placeholder="Rechercher" /></li>
+			<ul class="actions vertical vertical-align">
+				<li><div class="placeholder-icon search"><input type="text" name="search-chambre" id="search-chambre" value="" placeholder="Rechercher" /></div></li>
 			</ul>
 	        <footer>
 	        </footer>
@@ -169,7 +169,7 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<ul class="copyright">
-			<li>&copy; Nicolas</li><li>Design: <a>HTML5 UP</a></li>
+			<li>&copy; Nicolas</li><li>Design: <a>HydraThallium</a></li>
 		</ul>
 	</footer>
 
