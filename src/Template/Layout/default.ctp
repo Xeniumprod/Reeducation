@@ -35,6 +35,7 @@
                                 <li><?= $this->Html->link('Elements', ['action'=>'elements', 'controller'=>'pages']);?></li>
                                 <li><?= $this->Html->link('Inscription', ['action'=>'signup', 'controller'=>'users']);?></li>
                                 <li><?= $this->Html->link('Connexion', ['action'=>'login', 'controller'=>'users']);?></li>
+                                <li><?= $this->Html->link('Gestion', ['action'=>'gestion', 'controller'=>'admin']);?></li>
                             </ul>
                         </div>
                     </li>
