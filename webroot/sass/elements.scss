@@ -1760,6 +1760,40 @@
 		}
 	}
 
+/* Profil patient */
+
+    #profil {
+        header {
+            > * {
+				display:inline-block;
+                top:0;
+                color:inherit;
+			}
+            
+            .police80 {
+                top:-1em;
+                color: _palette(fg-light);
+            }
+            
+            p {
+                margin:0px 0px 1em;
+            }
+        }
+        
+        label {
+            transform: rotate(45deg);
+        }
+        
+        .fa-male {
+            color:skyblue;
+        }
+        
+        .fa-female {
+            color:pink;
+        }
+    }
+
+
 /* Main */
 
 	#main {
@@ -1950,3 +1984,14 @@
     .text-align {
         text-align: center;
     }
+
+/* Bouton ajout */
+
+.bouton-ajout {
+    border-radius: 50%;
+    border: 2px solid black;
+    width:46px;
+    height:46px;
+    text-align: center;
+    line-height: inherit;
+}

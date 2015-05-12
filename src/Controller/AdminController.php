@@ -40,4 +40,9 @@ class AdminController extends AppController
     {
 
     }
+    
+    public function ajout()
+    {
+    
+    }
 }

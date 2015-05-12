@@ -12,7 +12,7 @@
 	            <li><a href="#cat" class="scrolly no_"><span class="icon major success style4"><span class="label">Balneo</span></span></a></li>
 	        </ul>
 		</div>
-		<a href="#two" class="more scrolly">Poursuivre</a>
+		<a href="#end" class="more scrolly">Poursuivre</a>
 	</section>
 
 	<!-- One -->
@@ -40,15 +40,15 @@
 	</section>
 
 	<!-- CTA -->
-    <section id="end" class="wrapper style4">
+    <section id="profil" class="wrapper style4">
         <div class="inner">
             <div class="row uniform">
-            <div class="5u -1u 12u(medium)">
+            <div class="5u -1u 8u(medium) -2u(medium) 12u(xsmall)">
                 <h2>Rechercher un patient</h2>
 				<p>Pour rechercher un patient, merci de bien sélectionner son numéro de chambre ou son nom dans le champs de recherche situé à droite.</p>
             </div>
 
-            <div class="4u -1u 12u(medium)">
+            <div class="4u -1u 8u(medium) -2u(medium) 12u(xsmall)">
                 <div class="placeholder-icon search">
                     <?= $this->Form->input('search', [
                         'type'=>'text', 
@@ -60,54 +60,32 @@
             </div>
             </div>
             
-            <div class="3u">
-                    <h2>DUJARDIN</h2>
-                    <p>Jean</p>
-                    <p class="police80">19602673001</p>
-                </div>
-                
-                <div class="9u">
-                    <table class="alt">
-                            <thead>
-                                <?= $this->Html->tableHeaders(['Kiné', 'APA', 'Ergo', 'Balnéo', 'Neuropsy', 'Ortho', 'Diét']); ?>
-                            </thead>
-                            <tbody>
-                                <?= $this->Html->tableCells([
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', '']
-                                ]); ?>
-                            </tbody>
-                    </table>
-                </div>
-        </div>
-    </section>
-    
-    <section class="wrapper style4">
-        <div class="inner">
             <div class="row uniform">
-                <div class="3u">
-                    <h2>DUJARDIN</h2>
+            <div class="10u -1u 8u(medium) -2u(medium) 12u(xsmall)">
+                <hr></hr>    
+            </div>
+            
+            <div class="3u -1u">
+                <header>
+                    <h4>DUJARDIN</h4>
                     <p>Jean</p>
+                    <br/>
                     <p class="police80">19602673001</p>
-                </div>
+                </header>
                 
-                <div class="9u">
-                    <table class="alt">
-                            <thead>
-                                <?= $this->Html->tableHeaders(['Kiné', 'APA', 'Ergo', 'Balnéo', 'Neuropsy', 'Ortho', 'Diét']); ?>
-                            </thead>
-                            <tbody>
-                                <?= $this->Html->tableCells([
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', ''],
-                                    ['', '', '', '', '', '', '']
-                                ]); ?>
-                            </tbody>
-                    </table>
-                </div>
+                <ul class="icons major">
+                    <li><div class="icon fa-male major style4"></div></li>
+                    <li><div class="icon major style4"><label>412BF</label></div></li>
+                </ul>
+                
+            </div>
+            
+            <div class="7u vertical-align">
+                <ul class="alt">
+                    <li>Kinésithérapeute : 10h30 - 11h30 avec Sara au 2ième étage</li>
+                    <li>APA : 9h30 - 10h30</li>
+                </ul>
+            </div>
             </div>
         </div>
     </section>

@@ -2863,6 +2863,23 @@ body.is-loading #banner:after {
     #cta .inner .actions {
       max-width: none; } }
 
+/* Profil patient */
+#profil header > * {
+  display: inline-block;
+  top: 0;
+  color: inherit; }
+#profil header .police80 {
+  top: -1em;
+  color: rgba(255, 255, 255, 0.5); }
+#profil header p {
+  margin: 0px 0px 1em; }
+#profil label {
+  transform: rotate(45deg); }
+#profil .fa-male {
+  color: skyblue; }
+#profil .fa-female {
+  color: pink; }
+
 /* Main */
 #main > header {
   padding: 12em 0 10em 0;
@@ -2997,5 +3014,14 @@ body.is-mobile.landing #footer {
 /* Aligement texte */
 .text-align {
   text-align: center; }
+
+/* Bouton ajout */
+.bouton-ajout {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  line-height: inherit; }
 
 /*# sourceMappingURL=elements.css.map */
