@@ -79,7 +79,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="6u">
+                    <div class="6u$">
                         <div class="fa fa-plus bouton-ajout"></div>
                     </div>
                     
@@ -103,7 +103,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="3u">
+                    <div class="3u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -133,7 +133,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="3u">
+                    <div class="3u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -163,7 +163,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="3u">
+                    <div class="3u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -193,7 +193,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="3u">
+                    <div class="3u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -203,7 +203,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="12u">
+                    <div class="12u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -213,7 +213,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="12u">
+                    <div class="12u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
@@ -223,7 +223,7 @@
                         ]);?>
                     </div>
                     
-                    <div class="12u">
+                    <div class="12u$">
                         <?= $this->Form->input('', [
                             'type'=>'text', 
                             'required'=>'true', 
