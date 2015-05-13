@@ -47,7 +47,9 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'index', 'home']);
+    $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
+
+    $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout'], ['_name' => 'logout']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -70,6 +72,14 @@ Router::scope('/', function ($routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+    $routes->fallbacks('InflectedRoute');
+});
+
+Router::prefix('admin', function ($routes) {
+    // Toutes les routes ici seront préfixées avec `/admin` et auront
+    // l'élément de route prefix => admin ajouté.
+    $routes->connect('/gestion', ['controller' => 'Admins', 'action' => 'gestion']);
+    $routes->connect('/ajout', ['controller' => 'Admins', 'action' => 'ajout']);
     $routes->fallbacks('InflectedRoute');
 });
 

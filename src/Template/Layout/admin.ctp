@@ -31,12 +31,12 @@
                         <div id="menu">
                             <ul>
                                 <li><?= $this->Html->link('Accueil', '/');?></li>
-                                <li><?= $this->Html->link('Generic', ['action'=>'generic', 'controller'=>'pages']);?></li>
-                                <li><?= $this->Html->link('Elements', ['action'=>'elements', 'controller'=>'pages']);?></li>
-                                <li><?= $this->Html->link('Inscription', ['action'=>'signup', 'controller'=>'users']);?></li>
+                                <li><?= $this->Html->link('Generic', ['prefix' => false, 'action'=>'generic', 'controller'=>'pages']);?></li>
+                                <li><?= $this->Html->link('Elements', ['prefix' => false, 'action'=>'elements', 'controller'=>'pages']);?></li>
+                                <li><?= $this->Html->link('Inscription', ['prefix' => false, 'action'=>'signup', 'controller'=>'users']);?></li>
                                 <li><?= $this->Html->link('Connexion', '/');?></li>
-                                <li><?= $this->Html->link('Gestion', ['prefix' => 'admin', 'action'=>'gestion', 'controller'=>'admins']);?></li>
-                                <?php if($this->request->session()->read('Auth.User')){ echo '<li>'.$this->Html->link(__('Se déconnecter'),['action'=>'logout', 'controller'=>'users']).'</li>'; } ?>
+                                <li><?= $this->Html->link('Gestion', ['prefix' => 'admin', 'action'=>'gestion']);?></li>
+                                <?php if($this->request->session()->read('Auth.User')){ echo '<li>'.$this->Html->link(__('Se déconnecter'),['prefix' => false, 'action'=>'logout', 'controller'=>'users']).'</li>'; } ?>
                             </ul>
                         </div>
                     </li>

@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 
@@ -27,6 +28,20 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        //$this->loadModel('Posts');
+    }
+
+    public function isAuthorized($user)
+    {
+        // Tous les utilisateurs enregistrés peuvent consulter leur profil
+        if (in_array($this->request->action, ['index', 'generic', 'elements', 'hdj'])){
+            return true;
+        }
+        return parent::isAuthorized($user);
+    }
 
     /**
      * Displays a view

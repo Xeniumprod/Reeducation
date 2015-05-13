@@ -12,11 +12,13 @@
  * @since     0.2.9
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use Cake\Core\Configure;
+use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use App\Controller\AppController;
 
 /**
  * Static content controller
@@ -25,8 +27,23 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
-class AdminController extends AppController
+class AdminsController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+    }
+
+    public function isAuthorized($user)
+    {
+        return parent::isAuthorized($user);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+    }
 
     /**
      * Displays a view

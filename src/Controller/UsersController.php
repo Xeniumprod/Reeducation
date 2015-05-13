@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 
@@ -27,6 +28,27 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class UsersController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        //$this->loadModel('Posts');
+    }
+
+    public function isAuthorized($user)
+    {
+        // Tous les utilisateurs enregistrés peuvent consulter leur profil
+        if (in_array($this->request->action, ['profile', 'account', 'settings', 'delete'])){
+            return true;
+        }
+        return parent::isAuthorized($user);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        //On autorise ces actions sans etre logué
+        $this->Auth->allow(['login', 'signup', 'logout']);
+    }
 
     /**
      * Displays a view
@@ -38,11 +60,60 @@ class UsersController extends AppController
 
     public function login()
     {
-
+        if($this->request->session()->read('Auth.User')){
+            return $this->redirect(['controller' => 'Pages', 'action' => 'index']);
+        }
+        $user = $this->Users->newEntity($this->request->data, ['validate' => 'create']);
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                if(isset($this->request->data['remember_me']))
+                {
+                    //die();
+                    $this->Cookie->configKey('CookieAuth', [
+                        'expires' => '+1 year',
+                        'httpOnly' => true
+                    ]);
+                    $this->Cookie->write('CookieAuth', [
+                        'username' => $this->request->data('username'),
+                        'password' => $this->request->data('password')
+                    ]);
+                }
+                $this->Auth->setUser($user);               
+                return $this->redirect(['controller' => 'Pages', 'action' => 'index']);
+            }
+            else{
+                $this->Flash->error(__("Mauvais identifiants."), ['key' => 'login']);
+                $this->request->data['username'] = '';
+                $this->request->data['password'] = '';
+            }
+        }
+        $this->set(compact('user'));
     }
 
     public function signup()
     {
-    	
+        $user = $this->Users->newEntity($this->request->data, ['validate' => 'create']);
+        if ($this->request->is('post')) {
+            $username = strtoupper("196".substr($this->request->data('lastname'), 0, 3).substr($this->request->data('firstname'), 0, 3));
+        	$this->request->data['username'] = $username;
+            $this->request->data['role'] = 'user';
+            $user = $this->Users->patchEntity($user, $this->request->data());
+            if (!$user->errors()){             
+                if ($this->Users->save($user)) {
+                    $this->Auth->setUser($user->toArray());
+                    $this->Flash->success(__("L'utilisateur a été correctement ajouté."));
+                    return $this->redirect(['controller' => 'Pages', 'action' => 'index']);
+                }                              
+            }else{
+                $this->Flash->error(__("Erreurs de validation."), ['key' => 'signup']);
+            }
+        }
+        $this->set(compact('user'));
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 }

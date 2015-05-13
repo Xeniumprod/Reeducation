@@ -4,7 +4,7 @@
 	<!-- Banner -->
 	<section id="banner">
 		<div class="inner">
-			<h2>#Nom Kiné</h2>
+			<h2><?= $this->request->session()->read('Auth.User.lastname') ?></h2>
 			<p>Bienvenue</p>
 			<ul class="icons major">
 	            <li><a href="#two" class="scrolly no_"><span class="icon major alert style4"><span class="label">Matériel</span></span></a></li>

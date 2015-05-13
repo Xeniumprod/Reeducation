@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -37,5 +38,74 @@ class AppController extends Controller
     public function initialize()
     {
         $this->loadComponent('Flash');
+        $this->loadComponent('Cookie');
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form',
+                'Xety/Cake3CookieAuth.Cookie'
+            ],
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' =>'login',
+                'prefix' => false
+            ],
+            'loginRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'unauthorizedRedirect' => [
+                'controller' => 'Users',
+                'action' =>'login',
+                'prefix' => false
+            ],
+            'authError' => __("Vous n'êtes pas autorisé à acceder à cette page."),
+            'flash' => [
+                'element' => 'error',
+                'key' => 'flash'
+            ]
+        ]);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        // Login automatique
+        if (!$this->Auth->user() && $this->Cookie->read('CookieAuth')) {
+            $user = $this->Auth->identify();
+            if ($user){
+                $this->Auth->setUser($user);
+            }else{
+                $this->Cookie->delete('CookieAuth');
+            }
+        }
+        if ((isset($this->request->params['prefix']) && ($this->request->params['prefix'] == 'admin'))) {
+            $this->layout = 'admin';
+        }
+    }
+
+    public function beforeRender(Event $event)
+    {
+        $this->set('username', $this->Auth->user('username'));
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin peuvent accéder à chaque action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+        if ((isset($this->request->params['prefix']) && ($this->request->params['prefix'] === 'admin'))) {
+            if($user['role'] == 'admin'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // Par défaut refuser
+        return false;
     }
 }
