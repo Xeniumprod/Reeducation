@@ -2212,6 +2212,8 @@ button,
         border-top-color: rgba(0, 0, 0, 0.125); } }
   .wrapper.style4 {
     background-color: transparent; }
+    .wrapper.style4 .special {
+      border: none !important; }
   .wrapper.style5 {
     background-color: #ffffff;
     color: #4E4852; }
@@ -2980,17 +2982,6 @@ body.landing #page-wrapper {
 body.landing #footer {
   background-color: rgba(29, 36, 42, 0.9); }
 
-body.is-mobile.landing #page-wrapper {
-  background: none; }
-body.is-mobile.landing #banner,
-body.is-mobile.landing .wrapper.style4 {
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/banner.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/banner.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/banner.jpg");
-  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/banner.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover; }
 body.is-mobile.landing #footer {
   background-color: #1d242a; }
 
@@ -3023,5 +3014,8 @@ body.is-mobile.landing #footer {
   height: 46px;
   text-align: center;
   line-height: inherit; }
+
+.error {
+  color: orangered; }
 
 /*# sourceMappingURL=elements.css.map */

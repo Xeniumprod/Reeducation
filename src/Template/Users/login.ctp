@@ -1,12 +1,12 @@
 <!-- Page Wrapper -->
-	<div id="page-wrapper">
+	<div id="page-wrapper" class="vertical-align" style="height:100vh">
 
 		<!-- Banner -->
         <section class="wrapper style4">
             <div class="inner">
                 <?= $this->Flash->render() ?>
                 <div class="row uniform">
-                    <div class="6u -3u">
+                    <div class="6u -3u 8u(medium) -2u(medium) 10u(small) -1u(small) 12u(xsmall) text-align">
                         <h2><?= __('Se connecter') ?></h2>
                         <?= $this->Form->create($user) ?>
                         <div class="row uniform">
@@ -31,27 +31,14 @@
                                     ]); ?>
                                 </div>
                             </div>
-
-                            <div class="12u">
-                                <?= $this->Form->checkbox('remember_me', ['hiddenField' => false, 'id' => 'remember_me']); ?>
-                                <label for="remember_me"><?= __(' Se souvenir de moi') ?></label>
+                            
+                            <div class="12u error">
+                                <p><?= __('Le nom de compte et/ou le mot de passe sont incorrects') ?></p>
                             </div>
 
-                            <div class="6u 12u(medium) vertical-align">
+                            <div class="12u text-align">
                                 <?= $this->Form->submit('Se connecter',['class'=>'special loading', 'data-loading-text'=>'Connexion ...']); ?>
                             </div>
-
-                            <div class="6u 12u(medium) police80 vertical-align">
-                                <p>
-                                    <a href="#" id="forget"> <?= __('Mot de passe oublié ?') ?> </a>
-                                </p>
-                            </div>
-
-                            <div class="12u police80 text-align">
-                            <p>
-                                <?= $this->Html->link("Retour à l'inscription", ['action'=>'signup', 'controller'=>'users']);?>
-                            </p>
-                        </div>
                         </div>
                         <?php echo $this->Form->end();?>
                     </div>

@@ -1321,6 +1321,10 @@
 
 		&.style4 {
 			background-color: transparent;
+            
+            .special {
+                border:none !important;
+            }
 		}
 
 		&.style5 {
@@ -1936,20 +1940,8 @@
 		}
 	}
 
-	body.is-mobile {
+	body.is-mobile {        
 		&.landing {
-			#page-wrapper {
-				background: none;
-			}
-
-			#banner,
-			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../img/banner.jpg")'));
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-
 			#footer {
 				background-color: darken(_palette(bg), 8);
 			}
@@ -1994,4 +1986,8 @@
     height:46px;
     text-align: center;
     line-height: inherit;
+}
+
+.error {
+    color:orangered;
 }

@@ -15,6 +15,7 @@
     <?= $this->Html->script('jquery.scrolly.min.js') ?>
     <?= $this->Html->script('skel.min.js') ?>
     <?= $this->Html->script('init.js') ?>
+    <?= $this->Html->script('nicolas.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

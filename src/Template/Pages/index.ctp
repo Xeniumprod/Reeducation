@@ -4,7 +4,7 @@
 	<!-- Banner -->
 	<section id="banner">
 		<div class="inner">
-			<h2><?= $this->request->session()->read('Auth.User.lastname') ?></h2>
+			<h2><?= $this->request->session()->read('Auth.User.firstname') ?></h2>
 			<p>Bienvenue</p>
 			<ul class="icons major">
 	            <li><a href="#two" class="scrolly no_"><span class="icon major alert style4"><span class="label">Matériel</span></span></a></li>
@@ -45,7 +45,7 @@
             <div class="row uniform">
             <div class="5u -1u 8u(medium) -2u(medium) 12u(xsmall)">
                 <h2>Rechercher un patient</h2>
-				<p>Pour rechercher un patient, merci de bien sélectionner son numéro de chambre ou son nom dans le champs de recherche situé à droite.</p>
+				<p>Pour rechercher un patient, merci d'entrer son numéro de chambre ou son nom dans le champs de recherche situé à droite.</p>
             </div>
 
             <div class="4u -1u 8u(medium) -2u(medium) 12u(xsmall)">
@@ -61,31 +61,36 @@
             </div>
             
             <div class="row uniform">
-            <div class="10u -1u 8u(medium) -2u(medium) 12u(xsmall)">
-                <hr></hr>    
-            </div>
+                <div class="10u -1u 8u(medium) -2u(medium) 12u(xsmall)">
+                    <hr></hr>    
+                </div>
+
+                <div class="1u -1u">
+                    <div class="icon major style4"><label>412BF</label></div>
+                </div>
+                <div class="3u text-align">
+                    <header>
+                        <h4>DUJARDIN</h4>
+                        <p>Jean</p>
+                        <br/>
+                        <p class="police80">19602673001</p>
+                    </header>
+                </div>
+                <div class="1u$">
+                    <div class="icon major fa-male style4"></div>
+                </div>
+
+                <div class="row uniform">
+                    <div class="6u">
+                        <a>Kinésithérapeute</a>
+                        <p>10h30 - 11h30 avec Sara au 2ième étage</p>
+                    </div>
             
-            <div class="3u -1u">
-                <header>
-                    <h4>DUJARDIN</h4>
-                    <p>Jean</p>
-                    <br/>
-                    <p class="police80">19602673001</p>
-                </header>
-                
-                <ul class="icons major">
-                    <li><div class="icon fa-male major style4"></div></li>
-                    <li><div class="icon major style4"><label>412BF</label></div></li>
-                </ul>
-                
-            </div>
-            
-            <div class="7u vertical-align">
-                <ul class="alt">
-                    <li>Kinésithérapeute : 10h30 - 11h30 avec Sara au 2ième étage</li>
-                    <li>APA : 9h30 - 10h30</li>
-                </ul>
-            </div>
+                    <div class="6u">
+                        <p><a>APA</a> : Sidonie</p>
+                        <p>10h30 - 11h30 au 4ième étage</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
