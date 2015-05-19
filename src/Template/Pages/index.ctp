@@ -12,7 +12,7 @@
 	            <li><a href="#cat" class="scrolly no_"><span class="icon major success style4"><span class="label">Balneo</span></span></a></li>
 	        </ul>
 		</div>
-		<a href="#end" class="more scrolly">Poursuivre</a>
+		<a href="#profil" class="more scrolly">Poursuivre</a>
 	</section>
 
 	<!-- One -->
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="1u -1u">
-                    <div class="icon major style4"><label>412BF</label></div>
+                    <div class="icon major size80"><label>412BF</label></div>
                 </div>
                 <div class="3u text-align">
                     <header>
@@ -77,20 +77,29 @@
                     </header>
                 </div>
                 <div class="1u$">
-                    <div class="icon major fa-male style4"></div>
+                    <div class="icon major fa-male size80"></div>
                 </div>
 
-                <div class="row uniform">
-                    <div class="6u">
-                        <a>Kinésithérapeute</a>
-                        <p>10h30 - 11h30 avec Sara au 2ième étage</p>
-                    </div>
-            
-                    <div class="6u">
-                        <p><a>APA</a> : Sidonie</p>
-                        <p>10h30 - 11h30 au 4ième étage</p>
-                    </div>
-                </div>
+                <ul class="info-features">
+                    <li>
+                        <h4>Kinésithérapeute</h4>
+                        <p><span class="icon mini fa-clock-o"></span>10h30 - 11h30</p>
+                        <p><span class="icon mini female fa-user"></span>Sara - 1ier étage</p>
+                        <p><span class="icon mini fa-phone"></span>2710</p>
+                    </li>
+                    <li>
+                        <h4>APA</h4>
+                        <p><span class="icon mini fa-clock-o"></span>10h00 - 10h30</p>
+                        <p><span class="icon mini male fa-user"></span>Patrick - 2ième étage</p>
+                        <p><span class="icon mini fa-phone"></span>2714</p>
+                    </li>
+                    <li>
+                        <h4>Ergothérapie</h4>
+                        <p><span class="icon mini fa-clock-o"></span>11h30 - 12h30</p>
+                        <p><span class="icon mini male fa-user"></span>Claire - 4ième étage</p>
+                        <p><span class="icon mini fa-phone"></span>2717</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>

@@ -24,7 +24,7 @@
 <body  class="landing kine">
     <!-- Header -->
         <header id="header" class="alt">
-            <h1><?= $this->Html->link('#Nom Kine', '/');?></h1>
+            <h1><?= $this->request->session()->read('Auth.User.firstname') ?></h1>
             <nav id="nav">
                 <ul>
                     <li class="special">
