@@ -67,18 +67,6 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
-                if(isset($this->request->data['remember_me']))
-                {
-                    //die();
-                    $this->Cookie->configKey('CookieAuth', [
-                        'expires' => '+1 year',
-                        'httpOnly' => true
-                    ]);
-                    $this->Cookie->write('CookieAuth', [
-                        'username' => $this->request->data('username'),
-                        'password' => $this->request->data('password')
-                    ]);
-                }
                 $this->Auth->setUser($user);               
                 return $this->redirect(['controller' => 'Pages', 'action' => 'index']);
             }
@@ -93,13 +81,15 @@ class UsersController extends AppController
 
     public function signup()
     {
+        //debug($this->request->data());die();
         $user = $this->Users->newEntity($this->request->data, ['validate' => 'create']);
         if ($this->request->is('post')) {
-            $username = strtoupper("196".substr($this->request->data('lastname'), 0, 3).substr($this->request->data('firstname'), 0, 3));
+            $username = $this->createUsername($this->request->data('lastname'),$this->request->data('firstname'));
         	$this->request->data['username'] = $username;
             $this->request->data['role'] = 'user';
             $user = $this->Users->patchEntity($user, $this->request->data());
-            if (!$user->errors()){             
+            if (!$user->errors()){ 
+                //die();            
                 if ($this->Users->save($user)) {
                     $this->Auth->setUser($user->toArray());
                     $this->Flash->success(__("L'utilisateur a été correctement ajouté."));
@@ -115,5 +105,45 @@ class UsersController extends AppController
     public function logout()
     {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function createUsername($lastname, $firstname)
+    {
+        $lastname = $this->stripAccents_Space($lastname);
+        $firstname = $this->stripAccents_Space($firstname);
+        return strtoupper("196".substr($lastname, 0, 3).substr($firstname, 0, 3));
+    }
+
+    public function stripAccents_Space($texte) {
+        $texte = str_replace(
+            array(
+                'à', 'â', 'ä', 'á', 'ã', 'å',
+                'î', 'ï', 'ì', 'í', 
+                'ô', 'ö', 'ò', 'ó', 'õ', 'ø', 
+                'ù', 'û', 'ü', 'ú', 
+                'é', 'è', 'ê', 'ë', 
+                'ç', 'ÿ', 'ñ',
+                'À', 'Â', 'Ä', 'Á', 'Ã', 'Å',
+                'Î', 'Ï', 'Ì', 'Í', 
+                'Ô', 'Ö', 'Ò', 'Ó', 'Õ', 'Ø', 
+                'Ù', 'Û', 'Ü', 'Ú', 
+                'É', 'È', 'Ê', 'Ë', 
+                'Ç', 'Ÿ', 'Ñ', ' '
+            ),
+            array(
+                'a', 'a', 'a', 'a', 'a', 'a', 
+                'i', 'i', 'i', 'i', 
+                'o', 'o', 'o', 'o', 'o', 'o', 
+                'u', 'u', 'u', 'u', 
+                'e', 'e', 'e', 'e', 
+                'c', 'y', 'n', 
+                'A', 'A', 'A', 'A', 'A', 'A', 
+                'I', 'I', 'I', 'I', 
+                'O', 'O', 'O', 'O', 'O', 'O', 
+                'U', 'U', 'U', 'U', 
+                'E', 'E', 'E', 'E', 
+                'C', 'Y', 'N', ''
+            ),$texte);
+        return $texte;
     }
 }
