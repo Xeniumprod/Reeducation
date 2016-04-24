@@ -578,12 +578,18 @@
                 }
             }
             
+            &.importe {
+                cursor: default;
+                background-color: _palette(fg);
+                color: forestgreen;
+                
+                &:hover {
+                    cursor: default;
+                }
+            }
+            
             &:hover {
                 cursor: pointer;
-                
-                &:after {
-                    color:red;
-                }
             }
             
             @include breakpoint(small) {
@@ -873,6 +879,14 @@
 				&:nth-child(2n + 1) {
 					background-color: _palette(border-bg);
 				}
+                
+                &.ajout {
+                    background-color:lightgreen !important;
+                }
+                
+                &.delete {
+                    background-color:lightcoral !important;
+                }
 			}
 		}
 
@@ -2067,6 +2081,10 @@
     color:orangered;
 }
 
+/*                                  */
+/* Page d'Importation fichier Excel */
+/*                                  */
+
 /* Section Import File (excel) */
 
 .import_file {
@@ -2075,6 +2093,14 @@
     .info_text {
         font-size: 0.2em;
         line-height: 2em;
+    }
+}
+
+/* Section Affichage et comparatif */
+
+.comparatif {
+    table {
+        font-size: 0.7em;
     }
 }
 
