@@ -7,9 +7,9 @@
 			<h2><?= $this->request->session()->read('Auth.User.firstname') ?></h2>
 			<p>Bienvenue</p>
 			<ul class="icons major">
-	            <li><a href="#two" class="scrolly no_"><span class="icon major alert style4"><span class="label">Matériel</span></span></a></li>
-	            <li><a href="#three" class="scrolly no_"><span class="icon major style4"><span class="label">HDJ</span></span></a></li>
-	            <li><a href="#cat" class="scrolly no_"><span class="icon major success style4"><span class="label">Balneo</span></span></a></li>
+	            <li><a href="#two" class="scrolly no_"><span class="icon major link alert style4"><span class="label">Matériel</span></span></a></li>
+	            <li><a href="#three" class="scrolly no_"><span class="icon major link style4"><span class="label">HDJ</span></span></a></li>
+	            <li><a href="#cat" class="scrolly no_"><span class="icon major link success style4"><span class="label">Balneo</span></span></a></li>
 	        </ul>
 		</div>
 		<a href="#profil" class="more scrolly">Poursuivre</a>

@@ -521,6 +521,7 @@
 		@include icon;
 		border-bottom: none;
 		position: relative;
+        cursor: default;
 
 		> .label {
 			display: none;
@@ -547,6 +548,48 @@
 				font-size: 1em;
 			}
 		}
+        
+        &.circulaire {
+            font-size: 10em;
+            border-radius: 50%;
+            display: inline-block;
+            border: solid 2px _palette(border);
+            height: calc(2em + 2px);
+			line-height: 2em;
+			text-align: center;
+			width: calc(2em + 2px);
+            
+            &.plein {
+                background-color: _palette(border);
+            }
+            
+            &:before {
+                display: inline-block;
+                font-size: 1em;
+                text-align: center;
+            }
+            
+            &.color_perso {
+                background-color: lightgrey;
+                
+                &:hover {
+                    background-color: _palette(fg);
+                    color: forestgreen;
+                }
+            }
+            
+            &:hover {
+                cursor: pointer;
+                
+                &:after {
+                    color:red;
+                }
+            }
+            
+            @include breakpoint(small) {
+				font-size: 7em;
+			}
+        }
 
 		&.style1 {
 			color: _palette(accent2, bg);
@@ -574,6 +617,10 @@
         
         &.mini {
             margin-right: 0.6em;
+        }
+        
+        &.link {
+            cursor: pointer;
         }
         
         &.female {
@@ -2018,6 +2065,17 @@
 
 .error {
     color:orangered;
+}
+
+/* Section Import File (excel) */
+
+.import_file {
+    text-align: center;
+    
+    .info_text {
+        font-size: 0.2em;
+        line-height: 2em;
+    }
 }
 
 /* Info-Features */
