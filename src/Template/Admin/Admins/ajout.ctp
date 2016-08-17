@@ -110,21 +110,22 @@
                                 </div>
                             </div>
                             
-                            <div class="6u">
+                            <div class="12u">
                                 <div class="placeholder-icon">
                                     <?= $this->Form->select('UF_hebergement', 
-                                        ['administratif' => 'Administratif', 'balnéothérapie' => 'Agent de balnéothérapie', 'apa' => 'APA', 'assistant_social' => 'Assistant social', 'dieteticien' => 'Diététicien', 'ergotherapeute' => 'Ergothérapeute', 'kinesitherapeute' => 'Kinésithérapeute', 'medecin' => 'Médecin', 'neuropsychologue' => 'Neuropsychologue', 'orthophoniste' => 'Orthophoniste', 'soignant' => 'Soignant'],
-                                        ['empty' => 'Etage / HDJ']) 
+                                        ['1' => 'Hôpital de jour', '2' => '2ième étage', '3' => '3ième étage', '4' => '4ième étage', '5' => '5ième étage', '6' => '6ième étage'],
+                                        ['empty' => 'Etage / HDJ'],
+                                        ['allowEmpty'=>false])
                                     ?>
                                 </div>
                             </div>
-                            <div class="6u$">
-                                <div class="placeholder-icon">
-                                    <?= $this->Form->select('lit', 
-                                        ['administratif' => 'Administratif', 'balnéothérapie' => 'Agent de balnéothérapie', 'apa' => 'APA', 'assistant_social' => 'Assistant social', 'dieteticien' => 'Diététicien', 'ergotherapeute' => 'Ergothérapeute', 'kinesitherapeute' => 'Kinésithérapeute', 'medecin' => 'Médecin', 'neuropsychologue' => 'Neuropsychologue', 'orthophoniste' => 'Orthophoniste', 'soignant' => 'Soignant'],
-                                        ['empty' => 'Chambre']) 
-                                    ?>
-                                </div>
+                            <div class="6u$" style="display:none;">
+                                <?= $this->Form->input('lit', [
+                                    'type'=>'text', 
+                                    'required'=>'false', 
+                                    'placeholder'=>"Chambre", 
+                                    'label'=>false
+                                ]); ?>
                             </div>
                             
                             <div class="12u">
