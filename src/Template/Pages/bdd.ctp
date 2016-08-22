@@ -20,8 +20,8 @@
 		<div class="inner">
             <h2>Recap BDD</h2>
 			<?php
-				foreach ($users as $user) {
-		            debug($user);
+				foreach ($bases as $base) {
+		            debug($base->nom);
 		        }
 			?>
             <div class="table-wrapper">

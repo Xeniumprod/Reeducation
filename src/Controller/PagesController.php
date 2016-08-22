@@ -31,7 +31,8 @@ class PagesController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadModel('Users');
+        $this->loadModel('Bases');
+        //$this->loadModel('Horaires');
     }
 
     public function isAuthorized($user)
@@ -72,7 +73,11 @@ class PagesController extends AppController
 
     public function bdd()
     {
-        $users = $this->Users->find()->where(['role' => 'user']);
-        $this->set(compact('users'));
+        $bases = $this->Bases->find()->where(['ergotherapeute' => 'claire']);
+        $this->set(compact('bases'));
+        
+        //$horaires = $this->Horaires->find()->where(['heure' => 'claire']);
+        //$this->set(compact('toto'));
+
     }
 }
