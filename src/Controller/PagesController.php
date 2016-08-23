@@ -73,9 +73,9 @@ class PagesController extends AppController
 
     public function bdd()
     {
-        $bases = $this->Bases->find()->where(['ergotherapeute' => 'claire']);
+        $bases = $this->Bases->find('all');
         $this->set(compact('bases'));
-        
+        $data = $bases->toArray();
         //$horaires = $this->Horaires->find()->where(['heure' => 'claire']);
         //$this->set(compact('toto'));
 
