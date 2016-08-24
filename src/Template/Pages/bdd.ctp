@@ -25,20 +25,21 @@
 		        }
 			?>
             <div class="table-wrapper">
-						<table class="alt">
-							<thead>
-								<?= $this->Html->tableHeaders(['ID', 'Etablissement', 'nombre', 'IPP', 'IPPFinal', 'nom', 'prenom', 'age', 'genre', 'chambre', 'etage', 'date_entree', 'date_sortie', 'presence', 'medecin', 'kinesitherapeute', 'ergotherapeute', 'apa']); ?>
-							</thead>
-							<tbody>
-	                        	<?php 
-                                    foreach ($bases as $base) {
-                                        $this->Html->tableCells(
-                                        [$base->id, $base->Etablissement, $base->nombre, $base->IPP, $base->IPPFinal, $base->nom, $base->prenom, $base->age, $base->genre, $base->chambre, $base->etage, $base->date_entree, $base->date_sortie, $base->presence, $base->medecin, $base->kinesitherapeute, $base->ergotherapeute, $base->apa]); 
-                                    }
-                                ?>
-		                    </tbody>
-						</table>
-					</div>
+				<table class="alt">
+					<thead>
+						<?= $this->Html->tableHeaders(['ID', 'Etablissement', 'nombre', 'IPP', 'IPPFinal', 'nom', 'prenom', 'age', 'genre', 'chambre', 'etage', 'date_entree', 'date_sortie', 'presence', 'medecin', 'kinesitherapeute', 'ergotherapeute', 'apa']); ?>
+					</thead>
+					<tbody>
+                    	<?php 
+                            foreach ($bases as $base) {
+                                echo $this->Html->tableCells(
+                                	[$base->id, $base->etablissement, $base->nombre, $base->IPP, $base->IPPFinal, $base->nom, $base->prenom, $base->age, $base->genre, $base->chambre, $base->etage, $base->date_entree, $base->date_sortie, $base->presence, $base->medecin, $base->kinesitherapeute, $base->ergotherapeute, $base->apa]
+                                ); 
+                            }
+                        ?>
+                    </tbody>
+				</table>
+			</div>
 		</div>
 	</section>
 
