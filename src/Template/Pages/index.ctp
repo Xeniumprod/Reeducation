@@ -26,13 +26,18 @@
 								<?= $this->Html->tableHeaders(['Chambre', 'Nom du patient', 'Kinésithérapeute', 'Ergothérapeute', 'APA']); ?>
 							</thead>
 							<tbody>
-	                        	<?= $this->Html->tableCells([
-		                            ['214D', 'LEBIDO Jeanne', 'Julien', 'Lucie', ''],
-		                            ['311', 'BALTICK Madeleine', 'Flavien', '', 'Sidonie'],
-		                            ['602F', 'BELAUN Pierre', 'Marine', '', ''],
-		                            ['607', 'LUDICE Adeline', 'Julien', 'Lucie', ''],
-		                            ['611', 'AUBERTAUX Françoise', 'Marianne', 'Claire', 'Patrick']
-		                        ]); ?>
+                                <?php
+                                    //$user_id = $this->request->session()->read('Auth.User.id');
+                                   // echo $user_id;
+                                
+                                   /* $bases = $this->Bases->find()->where(['kinesitherapeute' => $user_id]);
+                                    $this->set(compact('bases'));
+                                   foreach ($bases as $base) {
+                                        $this->Html->tableCells([
+                                            [$base->IPP, $base->nom, $base->prenom],
+                                        ]); 
+                                   }*/
+                                ?>
 		                    </tbody>
 						</table>
 					</div>
