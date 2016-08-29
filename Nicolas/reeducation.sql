@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Lun 29 Août 2016 à 00:22
+-- Généré le :  Lun 29 Août 2016 à 23:03
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.5.14
 
@@ -25,70 +25,11 @@ USE `reeducation`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bases`
+-- Structure de la table `chambres`
 --
 
-DROP TABLE IF EXISTS `bases`;
-CREATE TABLE `bases` (
-`id` int(11) NOT NULL,
-  `etablissement` int(3) NOT NULL,
-  `nombre` int(3) NOT NULL,
-  `IPP` int(5) NOT NULL,
-  `IPPFinal` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `age` int(3) DEFAULT NULL,
-  `genre` tinyint(1) NOT NULL,
-  `chambre` varchar(5) NOT NULL,
-  `etage` int(11) NOT NULL,
-  `date_entree` date NOT NULL,
-  `date_sortie` date DEFAULT NULL,
-  `presence` tinyint(1) NOT NULL,
-  `medecin` varchar(255) NOT NULL,
-  `kinesitherapeute` int(11) DEFAULT NULL,
-  `ergotherapeute` varchar(255) DEFAULT NULL,
-  `apa` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `bases`
---
-
-INSERT INTO `bases` (`id`, `etablissement`, `nombre`, `IPP`, `IPPFinal`, `nom`, `prenom`, `age`, `genre`, `chambre`, `etage`, `date_entree`, `date_sortie`, `presence`, `medecin`, `kinesitherapeute`, `ergotherapeute`, `apa`) VALUES
-(1, 196, 1, 34323, 2147483647, 'PASTORE', 'Lucas', 34, 0, '412BP', 4, '2016-12-25', '2017-03-24', 1, 'SABOURIN', 15, 'claire', 'andy'),
-(2, 196, 1, 24566, 2147483647, 'RADGIANI', 'Fabienne', NULL, 0, '306', 3, '2016-12-25', '2018-04-19', 1, 'SABOURIN', 4, 'test', 'test');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `base_importations`
---
-
-DROP TABLE IF EXISTS `base_importations`;
-CREATE TABLE `base_importations` (
-`id` int(11) NOT NULL,
-  `IPPFinal` int(11) NOT NULL,
-  `IPP` int(5) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `nom_fille` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `age` int(3) NOT NULL,
-  `date_entree` datetime NOT NULL,
-  `date_sortie` datetime NOT NULL,
-  `UF_medicale` varchar(255) NOT NULL,
-  `UF_hebergement` varchar(255) NOT NULL,
-  `lit` varchar(255) NOT NULL,
-  `medecin` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `chambre`
---
-
-DROP TABLE IF EXISTS `chambre`;
-CREATE TABLE `chambre` (
+DROP TABLE IF EXISTS `chambres`;
+CREATE TABLE `chambres` (
 `id` int(11) NOT NULL,
   `numero_chambre` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
@@ -97,10 +38,10 @@ CREATE TABLE `chambre` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=132 ;
 
 --
--- Contenu de la table `chambre`
+-- Contenu de la table `chambres`
 --
 
-INSERT INTO `chambre` (`id`, `numero_chambre`, `active`, `etage`, `prestation`) VALUES
+INSERT INTO `chambres` (`id`, `numero_chambre`, `active`, `etage`, `prestation`) VALUES
 (1, '201', 1, 2, 1),
 (2, '202', 0, 2, 1),
 (3, '202P', 1, 2, 0),
@@ -236,6 +177,26 @@ INSERT INTO `chambre` (`id`, `numero_chambre`, `active`, `etage`, `prestation`) 
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `etablissements`
+--
+
+DROP TABLE IF EXISTS `etablissements`;
+CREATE TABLE `etablissements` (
+  `id` int(11) NOT NULL,
+  `etablissement` varchar(255) NOT NULL,
+  `type etablissement` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `etablissements`
+--
+
+INSERT INTO `etablissements` (`id`, `etablissement`, `type etablissement`) VALUES
+(196, 'Port Royal', 'CRF');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `fauteuils`
 --
 
@@ -258,6 +219,72 @@ INSERT INTO `fauteuils` (`id`, `NS`, `CIP`, `Inventaire`, `utilise`, `commentair
 (1, '051124291228', '70045800469', '51124291228', 0, NULL, 'FRM01'),
 (2, NULL, '70045800463', '51124291222', 0, NULL, 'FRM02'),
 (3, '051124291211', '70045800452', '51124291211', 0, NULL, 'FRM03');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `journals`
+--
+
+DROP TABLE IF EXISTS `journals`;
+CREATE TABLE `journals` (
+`id` int(11) NOT NULL,
+  `action` varchar(255) NOT NULL,
+  `date_time` datetime NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `materiels`
+--
+
+DROP TABLE IF EXISTS `materiels`;
+CREATE TABLE `materiels` (
+`id` int(11) NOT NULL,
+  `test_canne` int(11) DEFAULT NULL,
+  `test_deamb` int(11) DEFAULT NULL,
+  `fauteuil_id` int(11) DEFAULT NULL,
+  `verifie` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `patients`
+--
+
+DROP TABLE IF EXISTS `patients`;
+CREATE TABLE `patients` (
+`id` int(11) NOT NULL,
+  `etablissement_id` int(11) NOT NULL,
+  `nombre` int(3) NOT NULL,
+  `IPP` int(5) NOT NULL,
+  `IPP_id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `age` int(3) DEFAULT NULL,
+  `genre` tinyint(1) NOT NULL,
+  `chambre_id` int(11) NOT NULL,
+  `date_entree` date NOT NULL,
+  `date_sortie` date DEFAULT NULL,
+  `presence` tinyint(1) NOT NULL,
+  `medecin_id` int(11) NOT NULL,
+  `kine_id` int(11) DEFAULT NULL,
+  `ergo_id` int(11) DEFAULT NULL,
+  `apa_id` int(11) DEFAULT NULL,
+  `materiel_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `patients`
+--
+
+INSERT INTO `patients` (`id`, `etablissement_id`, `nombre`, `IPP`, `IPP_id`, `nom`, `prenom`, `age`, `genre`, `chambre_id`, `date_entree`, `date_sortie`, `presence`, `medecin_id`, `kine_id`, `ergo_id`, `apa_id`, `materiel_id`) VALUES
+(1, 196, 1, 34323, 2147483647, 'PASTORE', 'Lucas', 34, 0, 71, '2016-12-25', '2017-03-24', 1, 0, 15, 0, 0, NULL),
+(2, 196, 1, 24566, 2147483647, 'RADGIANI', 'Fabienne', NULL, 0, 36, '2016-12-25', '2018-04-19', 1, 0, 4, 0, 0, NULL),
+(3, 196, 3, 12345, 2147483647, 'NOUILLO', 'Sylvie', NULL, 1, 46, '2016-08-10', NULL, 1, 3, 15, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -557,21 +584,9 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `act
 --
 
 --
--- Index pour la table `bases`
+-- Index pour la table `chambres`
 --
-ALTER TABLE `bases`
- ADD PRIMARY KEY (`id`), ADD KEY `IPP` (`IPP`);
-
---
--- Index pour la table `base_importations`
---
-ALTER TABLE `base_importations`
- ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `chambre`
---
-ALTER TABLE `chambre`
+ALTER TABLE `chambres`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -579,6 +594,24 @@ ALTER TABLE `chambre`
 --
 ALTER TABLE `fauteuils`
  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `journals`
+--
+ALTER TABLE `journals`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `materiels`
+--
+ALTER TABLE `materiels`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `patients`
+--
+ALTER TABLE `patients`
+ ADD PRIMARY KEY (`id`), ADD KEY `IPP` (`IPP`);
 
 --
 -- Index pour la table `plannings`
@@ -645,25 +678,30 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT pour la table `bases`
+-- AUTO_INCREMENT pour la table `chambres`
 --
-ALTER TABLE `bases`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT pour la table `base_importations`
---
-ALTER TABLE `base_importations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `chambre`
---
-ALTER TABLE `chambre`
+ALTER TABLE `chambres`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT pour la table `fauteuils`
 --
 ALTER TABLE `fauteuils`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `journals`
+--
+ALTER TABLE `journals`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `materiels`
+--
+ALTER TABLE `materiels`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `patients`
+--
+ALTER TABLE `patients`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `plannings`
 --

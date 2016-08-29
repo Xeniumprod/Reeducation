@@ -9,7 +9,7 @@ class UsersTable extends Table
 {
 	public function initialize(array $config)
     {
-        $this->table('bases');
+        $this->table('patients');
         $this->primaryKey('id');
    	}
 }

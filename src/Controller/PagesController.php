@@ -31,8 +31,7 @@ class PagesController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadModel('Bases');
-        //$this->loadModel('Horaires');
+        $this->loadModel('Patients');
     }
 
     public function isAuthorized($user)
@@ -54,8 +53,8 @@ class PagesController extends AppController
     public function index()
     {
         $user_id = $this->request->session()->read('Auth.User.id');
-        $bases = $this->Bases->find()->where(['kinesitherapeute' => $user_id]);
-        $this->set(compact('bases'));
+        $patients = $this->Patients->find()->where(['kine_id' => $user_id]);
+        $this->set(compact('patients'));
     }
 
     public function generic()
@@ -75,11 +74,7 @@ class PagesController extends AppController
 
     public function bdd()
     {
-        $bases = $this->Bases->find('all');
-        $this->set(compact('bases'));
-        $data = $bases->toArray();
-        //$horaires = $this->Horaires->find()->where(['heure' => 'claire']);
-        //$this->set(compact('toto'));
-
+        $patients = $this->Patients->find('all');
+        $this->set(compact('patients'));
     }
 }

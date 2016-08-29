@@ -23,13 +23,13 @@
             <div class="table-wrapper">
 						<table class="alt">
 							<thead>
-								<?= $this->Html->tableHeaders(['IPP', 'Nom du patient', 'Prénom', 'Chambre']); ?>
+								<?= $this->Html->tableHeaders(['IPP', 'Nom du patient', 'Prénom']); ?>
 							</thead>
 							<tbody>
                                 <?php
-                                    foreach ($bases as $base) {
+                                    foreach ($patients as $patient) {
                                         echo $this->Html->tableCells([
-                                            [$base->IPP, $base->nom, $base->prenom, $base->chambre],
+                                            [$patient->IPP, $patient->nom, $patient->prenom],
                                         ]); 
                                    }
                                 ?>

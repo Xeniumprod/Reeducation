@@ -20,20 +20,20 @@
 		<div class="inner">
             <h2>Recap BDD</h2>
 			<?php
-				foreach ($bases as $base) {
-		            debug($base->nom);
+				foreach ($patients as $patient) {
+		            debug($patient->nom);
 		        }
 			?>
             <div class="table-wrapper">
 				<table class="alt">
 					<thead>
-						<?= $this->Html->tableHeaders(['ID', 'Etablissement', 'nombre', 'IPP', 'IPPFinal', 'nom', 'prenom', 'age', 'genre', 'chambre', 'etage', 'date_entree', 'date_sortie', 'presence', 'medecin', 'kinesitherapeute', 'ergotherapeute', 'apa']); ?>
+						<?= $this->Html->tableHeaders(['ID', 'Etablissement_id', 'nombre', 'IPP', 'IPP_id', 'nom', 'prenom', 'age', 'genre', 'chambre_id', 'date_entree', 'date_sortie', 'presence', 'medecin_id', 'kine_id', 'ergo_id', 'apa_id']); ?>
 					</thead>
 					<tbody>
                     	<?php 
-                            foreach ($bases as $base) {
+                            foreach ($patients as $patient) {
                                 echo $this->Html->tableCells(
-                                	[$base->id, $base->etablissement, $base->nombre, $base->IPP, $base->IPPFinal, $base->nom, $base->prenom, $base->age, $base->genre, $base->chambre, $base->etage, $base->date_entree, $base->date_sortie, $base->presence, $base->medecin, $base->kinesitherapeute, $base->ergotherapeute, $base->apa]
+                                	[$patient->id, $patient->etablissement_id, $patient->nombre, $patient->IPP, $patient->IPP_id, $patient->nom, $patient->prenom, $patient->age, $patient->genre, $patient->chambre_id, $patient->date_entree, $patient->date_sortie, $patient->presence, $patient->medecin_id, $patient->kine_id, $patient->ergo_id, $patient->apa_id]
                                 ); 
                             }
                         ?>
