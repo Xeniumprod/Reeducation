@@ -23,20 +23,15 @@
             <div class="table-wrapper">
 						<table class="alt">
 							<thead>
-								<?= $this->Html->tableHeaders(['Chambre', 'Nom du patient', 'Kinésithérapeute', 'Ergothérapeute', 'APA']); ?>
+								<?= $this->Html->tableHeaders(['IPP', 'Nom du patient', 'Prénom', 'Chambre']); ?>
 							</thead>
 							<tbody>
                                 <?php
-                                    //$user_id = $this->request->session()->read('Auth.User.id');
-                                   // echo $user_id;
-                                
-                                   /* $bases = $this->Bases->find()->where(['kinesitherapeute' => $user_id]);
-                                    $this->set(compact('bases'));
-                                   foreach ($bases as $base) {
-                                        $this->Html->tableCells([
-                                            [$base->IPP, $base->nom, $base->prenom],
+                                    foreach ($bases as $base) {
+                                        echo $this->Html->tableCells([
+                                            [$base->IPP, $base->nom, $base->prenom, $base->chambre],
                                         ]); 
-                                   }*/
+                                   }
                                 ?>
 		                    </tbody>
 						</table>

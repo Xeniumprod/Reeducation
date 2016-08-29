@@ -53,7 +53,9 @@ class PagesController extends AppController
      */
     public function index()
     {
-        
+        $user_id = $this->request->session()->read('Auth.User.id');
+        $bases = $this->Bases->find()->where(['kinesitherapeute' => $user_id]);
+        $this->set(compact('bases'));
     }
 
     public function generic()
