@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Lun 29 Août 2016 à 23:03
+-- Généré le :  Mar 30 Août 2016 à 22:49
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.5.14
 
@@ -30,7 +30,7 @@ USE `reeducation`;
 
 DROP TABLE IF EXISTS `chambres`;
 CREATE TABLE `chambres` (
-`id` int(11) NOT NULL,
+`chambre_id` int(11) NOT NULL,
   `numero_chambre` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `etage` int(11) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `chambres` (
 -- Contenu de la table `chambres`
 --
 
-INSERT INTO `chambres` (`id`, `numero_chambre`, `active`, `etage`, `prestation`) VALUES
+INSERT INTO `chambres` (`chambre_id`, `numero_chambre`, `active`, `etage`, `prestation`) VALUES
 (1, '201', 1, 2, 1),
 (2, '202', 0, 2, 1),
 (3, '202P', 1, 2, 0),
@@ -242,7 +242,7 @@ CREATE TABLE `journals` (
 
 DROP TABLE IF EXISTS `materiels`;
 CREATE TABLE `materiels` (
-`id` int(11) NOT NULL,
+`materiel_id` int(11) NOT NULL,
   `test_canne` int(11) DEFAULT NULL,
   `test_deamb` int(11) DEFAULT NULL,
   `fauteuil_id` int(11) DEFAULT NULL,
@@ -274,17 +274,18 @@ CREATE TABLE `patients` (
   `kine_id` int(11) DEFAULT NULL,
   `ergo_id` int(11) DEFAULT NULL,
   `apa_id` int(11) DEFAULT NULL,
-  `materiel_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `materiel_id` int(11) DEFAULT NULL,
+  `planning_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `patients`
 --
 
-INSERT INTO `patients` (`id`, `etablissement_id`, `nombre`, `IPP`, `IPP_id`, `nom`, `prenom`, `age`, `genre`, `chambre_id`, `date_entree`, `date_sortie`, `presence`, `medecin_id`, `kine_id`, `ergo_id`, `apa_id`, `materiel_id`) VALUES
-(1, 196, 1, 34323, 2147483647, 'PASTORE', 'Lucas', 34, 0, 71, '2016-12-25', '2017-03-24', 1, 0, 15, 0, 0, NULL),
-(2, 196, 1, 24566, 2147483647, 'RADGIANI', 'Fabienne', NULL, 0, 36, '2016-12-25', '2018-04-19', 1, 0, 4, 0, 0, NULL),
-(3, 196, 3, 12345, 2147483647, 'NOUILLO', 'Sylvie', NULL, 1, 46, '2016-08-10', NULL, 1, 3, 15, NULL, NULL, NULL);
+INSERT INTO `patients` (`id`, `etablissement_id`, `nombre`, `IPP`, `IPP_id`, `nom`, `prenom`, `age`, `genre`, `chambre_id`, `date_entree`, `date_sortie`, `presence`, `medecin_id`, `kine_id`, `ergo_id`, `apa_id`, `materiel_id`, `planning_id`) VALUES
+(1, 196, 1, 34323, 2147483647, 'PASTORE', 'Lucas', 34, 0, 71, '2016-12-25', '2017-03-24', 1, 0, 15, 0, 0, NULL, NULL),
+(2, 196, 1, 24566, 2147483647, 'RADGIANI', 'Fabienne', NULL, 0, 36, '2016-12-25', '2018-04-19', 1, 0, 4, 0, 0, NULL, NULL),
+(3, 196, 3, 12345, 2147483647, 'NOUILLO', 'Sylvie', NULL, 1, 46, '2016-08-10', NULL, 1, 3, 15, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -294,15 +295,15 @@ INSERT INTO `patients` (`id`, `etablissement_id`, `nombre`, `IPP`, `IPP_id`, `no
 
 DROP TABLE IF EXISTS `plannings`;
 CREATE TABLE `plannings` (
-`id` int(11) NOT NULL,
-  `ID_Kine` int(11) DEFAULT NULL,
-  `ID_Ergo` int(11) DEFAULT NULL,
-  `ID_APA` int(11) DEFAULT NULL,
-  `ID_Psy` int(11) DEFAULT NULL,
-  `ID_Ortho` int(11) DEFAULT NULL,
-  `ID_Social` int(11) DEFAULT NULL,
-  `ID_Diet` int(11) DEFAULT NULL,
-  `ID_Balneo` int(11) DEFAULT NULL
+`planning_id` int(11) NOT NULL,
+  `planning_kine_id` int(11) DEFAULT NULL,
+  `planning_ergo_id` int(11) DEFAULT NULL,
+  `planning_apa_id` int(11) DEFAULT NULL,
+  `planning_psy_id` int(11) DEFAULT NULL,
+  `planning_ortho_id` int(11) DEFAULT NULL,
+  `planning_social_id` int(11) DEFAULT NULL,
+  `planning_diet_id` int(11) DEFAULT NULL,
+  `planning_balneo_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -313,7 +314,7 @@ CREATE TABLE `plannings` (
 
 DROP TABLE IF EXISTS `planning_apas`;
 CREATE TABLE `planning_apas` (
-`id` int(11) NOT NULL,
+`planning_apa_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -344,7 +345,7 @@ CREATE TABLE `planning_apas` (
 
 DROP TABLE IF EXISTS `planning_balneos`;
 CREATE TABLE `planning_balneos` (
-`id` int(11) NOT NULL,
+`planning_balneo_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -375,7 +376,7 @@ CREATE TABLE `planning_balneos` (
 
 DROP TABLE IF EXISTS `planning_diets`;
 CREATE TABLE `planning_diets` (
-`id` int(11) NOT NULL,
+`planning_diet_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -406,7 +407,7 @@ CREATE TABLE `planning_diets` (
 
 DROP TABLE IF EXISTS `planning_ergos`;
 CREATE TABLE `planning_ergos` (
-`id` int(11) NOT NULL,
+`planning_ergo_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -437,7 +438,7 @@ CREATE TABLE `planning_ergos` (
 
 DROP TABLE IF EXISTS `planning_kines`;
 CREATE TABLE `planning_kines` (
-`id` int(11) NOT NULL,
+`planning_kine_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -468,7 +469,7 @@ CREATE TABLE `planning_kines` (
 
 DROP TABLE IF EXISTS `planning_orthos`;
 CREATE TABLE `planning_orthos` (
-  `id` int(11) NOT NULL,
+  `planning_ortho_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -499,7 +500,7 @@ CREATE TABLE `planning_orthos` (
 
 DROP TABLE IF EXISTS `planning_psys`;
 CREATE TABLE `planning_psys` (
-`id` int(11) NOT NULL,
+`planning_psy_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -530,7 +531,7 @@ CREATE TABLE `planning_psys` (
 
 DROP TABLE IF EXISTS `planning_socials`;
 CREATE TABLE `planning_socials` (
-`id` int(11) NOT NULL,
+`planning_social_id` int(11) NOT NULL,
   `lundi_1` time DEFAULT NULL,
   `duree_lundi_1` time DEFAULT NULL,
   `lundi_2` time DEFAULT NULL,
@@ -587,7 +588,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `act
 -- Index pour la table `chambres`
 --
 ALTER TABLE `chambres`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`chambre_id`);
 
 --
 -- Index pour la table `fauteuils`
@@ -605,7 +606,7 @@ ALTER TABLE `journals`
 -- Index pour la table `materiels`
 --
 ALTER TABLE `materiels`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`materiel_id`);
 
 --
 -- Index pour la table `patients`
@@ -617,55 +618,55 @@ ALTER TABLE `patients`
 -- Index pour la table `plannings`
 --
 ALTER TABLE `plannings`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_id`);
 
 --
 -- Index pour la table `planning_apas`
 --
 ALTER TABLE `planning_apas`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_apa_id`);
 
 --
 -- Index pour la table `planning_balneos`
 --
 ALTER TABLE `planning_balneos`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_balneo_id`);
 
 --
 -- Index pour la table `planning_diets`
 --
 ALTER TABLE `planning_diets`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_diet_id`);
 
 --
 -- Index pour la table `planning_ergos`
 --
 ALTER TABLE `planning_ergos`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_ergo_id`);
 
 --
 -- Index pour la table `planning_kines`
 --
 ALTER TABLE `planning_kines`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_kine_id`);
 
 --
 -- Index pour la table `planning_orthos`
 --
 ALTER TABLE `planning_orthos`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_ortho_id`);
 
 --
 -- Index pour la table `planning_psys`
 --
 ALTER TABLE `planning_psys`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_psy_id`);
 
 --
 -- Index pour la table `planning_socials`
 --
 ALTER TABLE `planning_socials`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`planning_social_id`);
 
 --
 -- Index pour la table `users`
@@ -681,7 +682,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `chambres`
 --
 ALTER TABLE `chambres`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=132;
+MODIFY `chambre_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT pour la table `fauteuils`
 --
@@ -696,52 +697,52 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `materiels`
 --
 ALTER TABLE `materiels`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `materiel_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `patients`
 --
 ALTER TABLE `patients`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `plannings`
 --
 ALTER TABLE `plannings`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_apas`
 --
 ALTER TABLE `planning_apas`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_apa_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_balneos`
 --
 ALTER TABLE `planning_balneos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_balneo_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_diets`
 --
 ALTER TABLE `planning_diets`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_diet_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_ergos`
 --
 ALTER TABLE `planning_ergos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_ergo_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_kines`
 --
 ALTER TABLE `planning_kines`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_kine_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_psys`
 --
 ALTER TABLE `planning_psys`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_psy_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `planning_socials`
 --
 ALTER TABLE `planning_socials`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `planning_social_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
