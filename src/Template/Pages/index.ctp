@@ -19,23 +19,28 @@
 	<section id="one" class="wrapper style6">
 		<div class="inner">
             <h2>Charge de travail</h2>
-			
             <div class="table-wrapper">
-						<table class="alt">
-							<thead>
-								<?= $this->Html->tableHeaders(['IPP', 'Nom du patient', 'Prénom']); ?>
-							</thead>
-							<tbody>
-                                <?php
-                                    foreach ($patients as $patient) {
-                                        echo $this->Html->tableCells([
-                                            [$patient->IPP, $patient->nom, $patient->prenom],
-                                        ]); 
-                                   }
-                                ?>
-		                    </tbody>
-						</table>
-					</div>
+                <table class="alt">
+                    <thead>
+                        <?= $this->Html->tableHeaders(['IPP', 'Nom du patient', 'Prénom']); ?>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach ($patients as $patient) {
+                                echo $this->Html->tableCells([
+                                    [$patient->IPP, $patient->nom, $patient->prenom],
+                                ]); 
+                           }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            
+            <hr>
+            
+            <h2>Notifications</h2>
+            <blockquote>Vous avez 3 patients à modifier</blockquote>
+            
 		</div>
 	</section>
 
@@ -62,7 +67,7 @@
             
             <div class="row uniform">
                 <div class="10u -1u 8u(medium) -2u(medium) 12u(xsmall)">
-                    <hr></hr>    
+                    <hr>   
                 </div>
 
                 <div class="1u -1u">
